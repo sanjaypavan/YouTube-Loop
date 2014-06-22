@@ -1,7 +1,7 @@
 YouTube-Loop
 ============
 
-Plays a video in loop
+Plays a youtube video in loop
 
 #####Requirements: nodejs
 
