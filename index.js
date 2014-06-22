@@ -22,6 +22,7 @@ function handlePageEvents() {
   if(setVideoId(url)){
       player.loadVideoById(VIDEO_ID, 0, "large");
   }
+  $('.youtube-url').val('');  
 }
 
 function callYoutubeAPI() {
@@ -47,6 +48,7 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
     player.playVideo();
     playerLoaded = true;
+    $('.youtube-url').val('');
     console.log("Player Ready");
 }
 
