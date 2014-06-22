@@ -55,6 +55,9 @@ function onPlayerStateChange(newState) {
    if(newState.data === YT.PlayerState.ENDED){
    		player.playVideo();
    }
+   if(newState.data === YT.PlayerState.PLAYING){
+      addVideoDescription();
+   }
 }
 
 function setVideoId(url){
@@ -66,6 +69,10 @@ function setVideoId(url){
         alert("The youtube url is not valid.");
         return false;
     }
+}
+
+function addVideoDescription() {
+  $('.video-info').empty().text(player.getVideoData()["title"]);
 }
 
 
