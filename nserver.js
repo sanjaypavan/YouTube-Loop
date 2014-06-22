@@ -4,7 +4,7 @@ var http = require('http'),
 
 
 http.createServer(function(request,response){
-	console.log("Requst Starting");
+	
 	var filePath = '.' + request.url;
 	if(filePath == './'){
 		filePath = './index.html';

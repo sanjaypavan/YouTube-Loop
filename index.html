@@ -1,32 +1,26 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-		<script type="application/javascript" src="jquery-2.1.1.min.js"></script>
-		<script type="application/javascript" src="index.js"></script>
-		<script type="text/javascript">
-			// Inject YouTube API script
-			var tag = document.createElement('script');
-			tag.src = "//www.youtube.com/iframe_api";
-			var firstScriptTag = document.getElementsByTagName('script')[0];
-			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-		</script>
+		<!--script type="application/javascript" src="jquery-2.1.1.min.js"></script-->
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script type="application/javascript" src="index.js" ></script>
 	</head>
 	<body>
-		<h1 style="text-align: center;">YouTube Repeat</h1>
+		<h1 style="text-align: center;">YouTube Loop</h1>
 		<div class="row">
 			<div class="col-md-4"></div>
 			 <div class="col-md-4">
 			 	<input type="text" size="100" class="form-control youtube-url" placeholder="youtube url">
 			 </div>
 			<div class="col-md-4">
-				<button type="button" class="btn btn-primary repeat-btn">Repeat it!</button>
+				<button type="button" class="btn btn-primary repeat-btn">Loop it!</button>
 			</div>
 		</div>
 		
-		<div style ="margin-top: 20px; display: none;" class="row player-div" >
+		<div style ="margin-top: 20px;" class="row" >
 			<div class="col-md-4"></div>
-  			<div class="col-md-4">
-  				<iframe width="560" height="315" src="//www.youtube.com/embed/WXmIUPB-GnQ?enablejsapi=1" frameborder="0" allowfullscreen id="video"></iframe>
+  			<div class="col-md-4" id="player-div">
+  				<!-- <iframe width="560" height="315" src="//www.youtube.com/embed/WXmIUPB-GnQ?enablejsapi=1" frameborder="0" allowfullscreen id="video"></iframe> -->
   			</div>
   			<div class="col-md-4"></div>
 		</div>
