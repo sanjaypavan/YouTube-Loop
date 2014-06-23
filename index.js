@@ -1,6 +1,8 @@
 var player;
 var VIDEO_ID;
 var playerLoaded;
+var loopCount = 1;
+var hours,minutes,seconds,timeOut;
 
 $(document).ready(function(){
   handlePageEvents();
@@ -21,6 +23,9 @@ function handlePageEvents() {
  function playNewVideo(url){
   if(setVideoId(url)){
       player.loadVideoById(VIDEO_ID, 0, "large");
+      loopCount = 1; //Initialize to 1 when new video is being played
+      initializeTimer();
+
   }
   $('.youtube-url').val('');  
 }
@@ -35,8 +40,8 @@ function callYoutubeAPI() {
 //This method is called when ever the iframe_api completes loading
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player-div', {
-      height: '315',
-      width: '560',
+      height: '360',
+      width: '640',
       videoId: VIDEO_ID,
       events: {
         'onReady': onPlayerReady,
@@ -48,6 +53,7 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
     player.playVideo();
     playerLoaded = true;
+    initializeTimer(); //Intialize the Timer
     $('.youtube-url').val('');
     console.log("Player Ready");
 }
@@ -56,6 +62,7 @@ function onPlayerReady(event) {
 function onPlayerStateChange(newState) {
    if(newState.data === YT.PlayerState.ENDED){
    		player.playVideo();
+      updateLoopCount();
    }
    if(newState.data === YT.PlayerState.PLAYING){
       addVideoDescription();
@@ -75,8 +82,43 @@ function setVideoId(url){
 
 function addVideoDescription() {
   $('.video-info').empty().text(player.getVideoData()["title"]);
+  $('.video-url').empty().text(player.getVideoUrl());
+  $('.title').empty().text(player.getVideoData()["title"]);
+  $('.author').empty().text(player.getVideoData()["author"]);
+  $('.info-div').show();
 }
 
+function updateLoopCount(){
+  loopCount++;
+  $('.loop-no').empty().text(loopCount);
+}
+
+function initializeTimer(){
+  hours = 0;
+  minutes = 0;
+  seconds = 0;
+  clearTimeout(timeOut);
+  startTimer();
+}
+
+function startTimer() {
+  if(seconds === 60){
+    seconds = 0;
+    minutes++;
+  }
+  if(minutes === 60){
+    minutes = 0;
+    hours++;
+  }
+  $('.tot-time').text(hours+":"+checkTime(minutes)+":"+checkTime(seconds));
+  seconds++;
+  timeOut = setTimeout(function(){startTimer()},1000);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
 
 
 

@@ -5,7 +5,7 @@
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script type="application/javascript" src="index.js" ></script>
 	</head>
-	<body>
+	<body style="background-color: #F5F8FA;">
 		<h1 style="text-align: center;">YouTube Loop</h1>
 		<div class="row">
 			<div class="col-md-4"></div>
@@ -20,10 +20,43 @@
 		<p class="bg-info video-info" style="text-align: center; margin-top: 20px;"></p>
 
 		<div style ="margin-top: 20px;" class="row" >
-			<div class="col-md-4"></div>
-  			<div class="col-md-4" id="player-div">
+			<div class="col-md-2"></div>
+  			<div class="col-md-10">
+  				<div class="col-md-6" id="player-div"> </div>
+  				<div class="col-md-6 info-div " style="display:none;">
+  					<h4 class="text-success">Video Information</h4>
+  					<div class="generic-info" style="background-color: white;">
+  						<table class="table" style="font-size: 13px;">
+  							<tr>
+  								<td>Title</td>
+  								<td class="title"></td>
+  							</tr>
+  							<tr>
+  								<td>Uploaded By</td>
+  								<td class="author"></td>
+  							</tr>
+  							<tr>
+  								<td>Url</td>
+  								<td class="video-url"></td>
+  							</tr>
+  						</table>
+  					</div>
+  					<h4 class="text-success">Loop Information</h4>
+  					<div class="loop-info" style="background-color: white;">
+  						<table class="table" style="font-size: 13px;">
+  							<tr>
+  								<td>Loop #</td>
+  								<td class="loop-no">1</td>
+  							</tr>
+  							<tr>
+  								<td>Time Spent on this Video</td>
+  								<td class="tot-time"></td>
+  							</tr>
+  						</table>
+  					</div>
+  				</div>
   			</div>
-  			<div class="col-md-4"></div>
+  			
 		</div>
 	</body>
 </html>
